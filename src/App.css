@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+.casilla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
 .columnA {
   display: flex;
   flex-direction: column;
@@ -28,8 +34,14 @@
   width: 121px;
 }
 
-.casilla {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+.columnE {
+  display: flex;
+  flex-direction: column;
+  width: 103px;
+}
+
+.columnF {
+  display: flex;
+  flex-direction: column;
+  width: 103px;
 }
