@@ -1,0 +1,62 @@
+.container {
+    position: absolute;
+    display: flex;
+    width: 100%;
+  }
+  
+  .casilla {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .casilla img:first-child {
+    display:flex;
+  }
+  .casilla img:last-child {
+    display:none;
+  }
+  
+  .casilla:hover img:last-child {
+    display:flex;
+  }
+  .casilla:hover img:first-child {
+    display:none;
+  }
+  
+  .columnA {
+    display: flex;
+    flex-direction: column;
+    width: 246px;
+  }
+  
+  .columnB {
+    display: flex;
+    flex-direction: column;
+    width: 159px;
+  }
+  
+  .columnC {
+    display: flex;
+    flex-direction: column;
+    width: 134px;
+  }
+  
+  .columnD{
+    display: flex;
+    flex-direction: column;
+    width: 121px;
+  }
+  
+  .columnE {
+    display: flex;
+    flex-direction: column;
+    width: 103px;
+  }
+  
+  .columnF {
+    display: flex;
+    flex-direction: column;
+    width: 103px;
+  }
+  
