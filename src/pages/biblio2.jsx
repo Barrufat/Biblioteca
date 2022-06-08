@@ -1,6 +1,6 @@
-import './biblio1.css'
+import './biblio2.css'
 
-function Biblio1() {
+function Biblio2() {
 
     return (
   
@@ -212,4 +212,4 @@ function Biblio1() {
     );
   }
   
-  export default Biblio1;
+  export default Biblio2;

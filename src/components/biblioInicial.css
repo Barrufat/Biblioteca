@@ -1,0 +1,38 @@
+.containerbib {
+    position: absolute;
+    display: flex;
+    width: 100%;
+  }
+
+  .biblio1 {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+  }
+
+  .biblio2 {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+  }
+  
+  .biblio {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .biblio img:first-child {
+    display:flex;
+  }
+
+  .biblio img:last-child {
+    display:none;
+  }
+  .biblio:hover img:first-child {
+    display:none;
+  }
+  
+  .biblio:hover img:last-child {
+    display:flex;
+  }
