@@ -1,0 +1,32 @@
+
+div.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+div.pokemons-petits {
+  width: 48%;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+div.pokemons-petits img {
+  cursor: pointer;
+}
+
+div.pokemons-petits img:hover {
+  border: 1px solid red;
+}
+
+div.poke-gros {
+  width: 48%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid red;
+  background-color: white;
+}
+
+div.poke-gros h1 {
+  color: red;
+}

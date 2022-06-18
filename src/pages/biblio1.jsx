@@ -1,20 +1,35 @@
-import CasillaGrande from '../components/casillaGrande';
+import { useState, useEffect } from 'react';
+// import CasillaGrande from '../components/casillaGrande';
 import './biblio1.css'
 
 function Biblio1() {
+  const [casilla, setCasilla] = useState("");
+  const [libros, setLibros] = useState([]);
+  const URL = casilla? "http://localhost:3030/api/libros/" + casilla : "http://localhost:3030/api/libros/"
+
+  function getLibros() {
+      fetch(URL)
+          .then(results => results.json())
+          .then(results => setLibros(results.data))
+          .catch(err => console.log(err))
+      console.log(libros)
+  }
+
+  useEffect(() => {
+      getLibros();
+  }, [casilla])
 
   return (
-
     <div className="container">
       <div className="libreria">
         <div className="columnA">
-          <div className="casilla">
+          <div className="casilla" onClick={setCasilla("/casilla/A1")}>
             <img className="imagen" src="./A1.png" alt="A1" />
             <img className="imagen" src="./H_A1.png" alt="H_A1" />
           </div>
-          <div className="casilla">
-            <img className="imagen" src="./A2.png" alt="A1" />
-            <img className="imagen" src="./H_A2.png" alt="H_A1" />
+          <div className="casilla"onClick={setCasilla("/casilla/A2")}>
+            <img className="imagen" src="./A2.png" alt="A2" />
+            <img className="imagen" src="./H_A2.png" alt="H_A2" />
           </div>
           <img className="casilla" src="./A3.png" alt="A3" />
           <img className="casilla" src="./A4.png" alt="A4" />
@@ -211,7 +226,20 @@ function Biblio1() {
           <img className="casilla" src="./F9.png" alt="F9" />
         </div>
       </div>
-      <CasillaGrande/>
+      <div className="casillaGrande">
+            <h1>{libros.casilla}</h1>
+            <ul className="grid">
+            {libros.map(libro => (
+                    <li key={libro.id} className="card">
+                        <h1 className="tituloLibro">{libro.nombre}</h1>
+                        <img className="imagenLibro" width="200px" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
+                        <p>Por {libro.autorx}</p>
+                        <p>Generos: {libro.genero}</p>
+                        <p>{libro.sinopsis}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
     </div>
   );
 }

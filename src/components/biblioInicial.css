@@ -15,13 +15,7 @@
     flex-direction: column;
     width: 900px;
   }
-  
-  .biblio {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-  
+    
   .biblio img:first-child {
     display:flex;
   }
