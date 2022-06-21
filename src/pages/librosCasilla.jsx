@@ -1,23 +1,20 @@
-
-// import CartaLibro from '../components/cartaLibro';
 import { useEffect, useState } from 'react';
-import './vertodos.css'
+import './librosCasilla.css'
 
-function Vertodos () {
+const LibrosCasilla = () => {
 
     const [libros, setLibros] = useState([]);
 
     function getLibros() {
-        fetch("http://localhost:3030/api/libros/")
+        fetch("http://localhost:3030/api/libros/casilla/A1")
             .then(results => results.json())
             .then(results => setLibros(results.data))
             .catch(err => console.log(err))
-        console.log("Libros" + libros)
+        console.log(libros)
     }
 
     useEffect(() => {
         getLibros();
-        console.log("Libros" + libros)
     }, [])
 
     // {"./uploads/"+(libro.imagen)+".png"}
@@ -39,4 +36,4 @@ function Vertodos () {
     );
 }
 
-export default Vertodos;
+export default LibrosCasilla;

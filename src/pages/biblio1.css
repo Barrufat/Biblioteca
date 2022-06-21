@@ -1,64 +1,101 @@
-.container {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    margin-left: 20px;
-    margin-top: 60px;
-  }
-  
-  .casilla {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-  
-  .casilla img:first-child {
-    display:flex;
-  }
-  .casilla img:last-child {
-    display:none;
-  }
-  
-  .casilla:hover img:last-child {
-    display:flex;
-  }
-  .casilla:hover img:first-child {
-    display:none;
-  }
-  
-  .columnA {
-    display: flex;
-    flex-direction: column;
-    width: 246px;
-  }
-  
-  .columnB {
-    display: flex;
-    flex-direction: column;
-    width: 159px;
-  }
-  
-  .columnC {
-    display: flex;
-    flex-direction: column;
-    width: 134px;
-  }
-  
-  .columnD{
-    display: flex;
-    flex-direction: column;
-    width: 121px;
-  }
-  
-  .columnE {
-    display: flex;
-    flex-direction: column;
-    width: 103px;
-  }
-  
-  .columnF {
-    display: flex;
-    flex-direction: column;
-    width: 103px;
-  }
-  
+
+div.libreria{
+  position:absolute;
+  display:flex;
+  margin-left: 20px;
+  margin-top:20px;
+}
+.casilla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.casilla img:first-child {
+  display: flex;
+}
+
+.casilla img:last-child {
+  display: none;
+}
+
+.casilla:hover img:last-child {
+  display: flex;
+}
+
+.casilla:hover img:first-child {
+  display: none;
+}
+
+.columnA {
+  display: flex;
+  flex-direction: column;
+  width: 246px;
+}
+
+.columnB {
+  display: flex;
+  flex-direction: column;
+  width: 159px;
+}
+
+.columnC {
+  display: flex;
+  flex-direction: column;
+  width: 134px;
+}
+
+.columnD {
+  display: flex;
+  flex-direction: column;
+  width: 121px;
+}
+
+.columnE {
+  display: flex;
+  flex-direction: column;
+  width: 103px;
+}
+
+.columnF {
+  display: flex;
+  flex-direction: column;
+  width: 103px;
+}
+
+.columnLast {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin-left: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: rgb(203, 203, 203);
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  list-style: none;
+}
+
+.card:hover {
+  background-color: rgb(180, 180, 180);
+}
+
+.tituloLibro{
+  color: white;
+  padding: 0px;
+  font-size: 20px;
+}
+
+p{
+  color: rgb(27, 27, 27);
+  margin: 0px;
+}

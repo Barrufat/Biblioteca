@@ -1,4 +1,5 @@
 import './biblio2.css'
+import { Link } from "react-router-dom";
 
 function Biblio2() {
 
@@ -6,10 +7,10 @@ function Biblio2() {
   
       <div className="container">
         <div className="columnA">
-          <div className="casilla">
+          <Link to="/librosCasilla" className="casilla">
             <img className="imagen" src="./A1.png" alt="A1" />
             <img className="imagen" src="./H_A1.png" alt="H_A1" />
-          </div>
+          </Link>
           <div className="casilla">
             <img className="imagen" src="./A2.png" alt="A1" />
             <img className="imagen" src="./H_A2.png" alt="H_A1" />

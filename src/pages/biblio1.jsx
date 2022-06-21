@@ -3,33 +3,58 @@ import { useState, useEffect } from 'react';
 import './biblio1.css'
 
 function Biblio1() {
-  const [casilla, setCasilla] = useState("");
+  const [casilla, setCasilla] = useState("/casilla/A0");
   const [libros, setLibros] = useState([]);
-  const URL = casilla? "http://localhost:3030/api/libros/" + casilla : "http://localhost:3030/api/libros/"
+
+  const URL = ("http://localhost:3030/api/libros" + casilla);
 
   function getLibros() {
-      fetch(URL)
-          .then(results => results.json())
-          .then(results => setLibros(results.data))
-          .catch(err => console.log(err))
-      console.log(libros)
+    fetch(URL)
+      .then(results => results.json())
+      .then(results => setLibros(results.data))
+      .catch(err => console.log(err));
+    console.log("libros" + libros);
   }
 
   useEffect(() => {
-      getLibros();
+    getLibros();
   }, [casilla])
 
+  function CasillaGrande() {
+    return (
+      <div className="casillaGrande">
+        <h1>{libros.casilla}</h1>
+        <ul className="grid">
+          {libros.map(libro => (
+            <li key={libro.id} className="card">
+              <h1 className="tituloLibro">{libro.nombre}</h1>
+              <img className="imagenLibro" width="200px" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
+              <p>Por {libro.autorx}</p>
+              <p>Generos: {libro.genero}</p>
+              <p>{libro.sinopsis}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  // if (!libros.length) {
+  //   return (<>no data</>)
+  // }
+
+
   return (
-    <div className="container">
+    <div className="containerBib1">
       <div className="libreria">
         <div className="columnA">
-          <div className="casilla" onClick={setCasilla("/casilla/A1")}>
+          <div className="casilla">
             <img className="imagen" src="./A1.png" alt="A1" />
-            <img className="imagen" src="./H_A1.png" alt="H_A1" />
+            <img className="imagen" src="./H_A1.png" alt="H_A1" onClick={() => setCasilla("/casilla/A1")} />
           </div>
-          <div className="casilla"onClick={setCasilla("/casilla/A2")}>
+          <div className="casilla">
             <img className="imagen" src="./A2.png" alt="A2" />
-            <img className="imagen" src="./H_A2.png" alt="H_A2" />
+            <img className="imagen" src="./H_A2.png" alt="H_A2" onClick={() => setCasilla("/casilla/A2")} />
           </div>
           <img className="casilla" src="./A3.png" alt="A3" />
           <img className="casilla" src="./A4.png" alt="A4" />
@@ -43,43 +68,43 @@ function Biblio1() {
         <div className="columnB">
           <div className="casilla">
             <img className="imagen" src="./B1.png" alt="B1" />
-            <img className="imagen" src="./H_B1.png" alt="H_B1" />
+            <img className="imagen" src="./H_B1.png" alt="H_B1" onClick={() => setCasilla("/casilla/B1")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B2.png" alt="B2" />
-            <img className="imagen" src="./H_B2.png" alt="H_B2" />
+            <img className="imagen" src="./H_B2.png" alt="H_B2" onClick={() => setCasilla("/casilla/B2")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B3.png" alt="B3" />
-            <img className="imagen" src="./H_B3.png" alt="H_B3" />
+            <img className="imagen" src="./H_B3.png" alt="H_B3" onClick={() => setCasilla("/casilla/B3")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B4.png" alt="B4" />
-            <img className="imagen" src="./H_B4.png" alt="H_B4" />
+            <img className="imagen" src="./H_B4.png" alt="H_B4" onClick={() => setCasilla("/casilla/B4")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B5.png" alt="B5" />
-            <img className="imagen" src="./H_B5.png" alt="H_B5" />
+            <img className="imagen" src="./H_B5.png" alt="H_B5" onClick={() => setCasilla("/casilla/B5")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B6.png" alt="B6" />
-            <img className="imagen" src="./H_B6.png" alt="H_B6" />
+            <img className="imagen" src="./H_B6.png" alt="H_B6" onClick={() => setCasilla("/casilla/B6")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B7.png" alt="B7" />
-            <img className="imagen" src="./H_B7.png" alt="H_B7" />
+            <img className="imagen" src="./H_B7.png" alt="H_B7" onClick={() => setCasilla("/casilla/B7")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B8.png" alt="B8" />
-            <img className="imagen" src="./H_B8.png" alt="H_B8" />
+            <img className="imagen" src="./H_B8.png" alt="H_B8" onClick={() => setCasilla("/casilla/B8")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B9.png" alt="B9" />
-            <img className="imagen" src="./H_B9.png" alt="H_B9" />
+            <img className="imagen" src="./H_B9.png" alt="H_B9" onClick={() => setCasilla("/casilla/B9")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./B10.png" alt="B10" />
-            <img className="imagen" src="./H_B10.png" alt="H_B10" />
+            <img className="imagen" src="./H_B10.png" alt="H_B10" onClick={() => setCasilla("/casilla/B10")} />
           </div>
         </div>
         <div className="columnC">
@@ -225,22 +250,14 @@ function Biblio1() {
           <img className="casilla" src="./F8.png" alt="F8" />
           <img className="casilla" src="./F9.png" alt="F9" />
         </div>
-      </div>
-      <div className="casillaGrande">
-            <h1>{libros.casilla}</h1>
-            <ul className="grid">
-            {libros.map(libro => (
-                    <li key={libro.id} className="card">
-                        <h1 className="tituloLibro">{libro.nombre}</h1>
-                        <img className="imagenLibro" width="200px" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
-                        <p>Por {libro.autorx}</p>
-                        <p>Generos: {libro.genero}</p>
-                        <p>{libro.sinopsis}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className="columnLast">
+          <CasillaGrande />
         </div>
+      </div>
     </div>
+
+
+
   );
 }
 
