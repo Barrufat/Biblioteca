@@ -14,7 +14,8 @@ code {
     monospace;
 }
 
-a {
-  text-decoration: none;
+h1 {
   color: white;
+  text-decoration: none;
+  margin: 0px;
 }

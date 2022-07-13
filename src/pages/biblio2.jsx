@@ -1,216 +1,199 @@
 import './biblio2.css'
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 function Biblio2() {
 
+  const [casilla, setCasilla] = useState("/casilla/A0");
+  const [libros, setLibros] = useState([]);
+
+  const URL = ("http://localhost:3030/api/libros" + casilla);
+
+  function getLibros() {
+    fetch(URL)
+      .then(results => results.json())
+      .then(results => setLibros(results.data))
+      .catch(err => console.log(err));
+    console.log("libros" + libros);
+  }
+
+  useEffect(() => {
+    getLibros();
+  }, [casilla])
+
+  function CasillaGrande() {
     return (
-  
-      <div className="container">
-        <div className="columnA">
-          <Link to="/librosCasilla" className="casilla">
-            <img className="imagen" src="./A1.png" alt="A1" />
-            <img className="imagen" src="./H_A1.png" alt="H_A1" />
-          </Link>
+      <div className="casillaGrande">
+        <h1>{libros.casilla}</h1>
+        <ul className="grid">
+          {libros.map(libro => (
+            <li key={libro.id} className="card">
+              <h1 className="tituloLibro">{libro.nombre}</h1>
+              <img className="imagenLibro" width="200px" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
+              <p>Por {libro.autorx}</p>
+              <p>Generos: {libro.genero}</p>
+              <p>{libro.sinopsis}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  return (
+    <div className="containerBib2">
+      <div className="libreria">
+        <div className="columnG">
           <div className="casilla">
-            <img className="imagen" src="./A2.png" alt="A1" />
-            <img className="imagen" src="./H_A2.png" alt="H_A1" />
+            <img className="imagen" src="./G1.png" alt="G1" />
+            <img className="imagen" src="./H_G1.png" alt="H_G1" onClick={() => setCasilla("/casilla/G1")} />
           </div>
-          <img className="casilla" src="./A3.png" alt="A3" />
-          <img className="casilla" src="./A4.png" alt="A4" />
-          <img className="casilla" src="./A5.png" alt="A5" />
-          <img className="casilla" src="./A6.png" alt="A6" />
-          <img className="casilla" src="./A7.png" alt="A7" />
-          <img className="casilla" src="./A8.png" alt="A8" />
-          <img className="casilla" src="./A9.png" alt="A9" />
-          <img className="casilla" src="./A10.png" alt="A10" />
+          <div className="casilla">
+            <img className="imagen" src="./G2.png" alt="G2" />
+            <img className="imagen" src="./H_G2.png" alt="H_G2" onClick={() => setCasilla("/casilla/G2")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./G3.png" alt="G3" />
+            <img className="imagen" src="./H_G3.png" alt="H_G3" onClick={() => setCasilla("/casilla/G3")}/>
+          </div>
+          <img className="casilla" src="./G4.png" alt="G4" />
+          <img className="casilla" src="./G5.png" alt="G5" />
+          <img className="casilla" src="./G6.png" alt="G6" />
         </div>
-        <div className="columnB">
+        <div className="columnH">
           <div className="casilla">
-            <img className="imagen" src="./B1.png" alt="B1" />
-            <img className="imagen" src="./H_B1.png" alt="H_B1" />
+            <img className="imagen" src="./H1.png" alt="H1" />
+            <img className="imagen" src="./H_H1.png" alt="H_H1" onClick={() => setCasilla("/casilla/H1")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./B2.png" alt="B2" />
-            <img className="imagen" src="./H_B2.png" alt="H_B2" />
+            <img className="imagen" src="./H2.png" alt="H2" />
+            <img className="imagen" src="./H_H2.png" alt="H_H2" onClick={() => setCasilla("/casilla/H2")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./B3.png" alt="B3" />
-            <img className="imagen" src="./H_B3.png" alt="H_B3" />
+            <img className="imagen" src="./H3.png" alt="H3" />
+            <img className="imagen" src="./H_H3.png" alt="H_H3" onClick={() => setCasilla("/casilla/H3")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./B4.png" alt="B4" />
-            <img className="imagen" src="./H_B4.png" alt="H_B4" />
+            <img className="imagen" src="./H4.png" alt="H4" />
+            <img className="imagen" src="./H_H4.png" alt="H_H4" onClick={() => setCasilla("/casilla/H4")}/>
           </div>
-          <div className="casilla">
-            <img className="imagen" src="./B5.png" alt="B5" />
-            <img className="imagen" src="./H_B5.png" alt="H_B5" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./B6.png" alt="B6" />
-            <img className="imagen" src="./H_B6.png" alt="H_B6" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./B7.png" alt="B7" />
-            <img className="imagen" src="./H_B7.png" alt="H_B7" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./B8.png" alt="B8" />
-            <img className="imagen" src="./H_B8.png" alt="H_B8" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./B9.png" alt="B9" />
-            <img className="imagen" src="./H_B9.png" alt="H_B9" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./B10.png" alt="B10" />
-            <img className="imagen" src="./H_B10.png" alt="H_B10" />
-          </div>
+          <img className="casilla" src="./H5.png" alt="H5" />
+          <img className="casilla" src="./H6.png" alt="H6" />
         </div>
-        <div className="columnC">
+        <div className="columnI">
           <div className="casilla">
-            <img className="imagen" src="./C1.png" alt="C1" />
-            <img className="imagen" src="./H_C1.png" alt="H_C1" />
+            <img className="imagen" src="./I1.png" alt="I1" />
+            <img className="imagen" src="./H_I1.png" alt="H_I1" onClick={() => setCasilla("/casilla/H1")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./C2.png" alt="C2" />
-            <img className="imagen" src="./H_C2.png" alt="H_C2" />
+            <img className="imagen" src="./I2.png" alt="I2" />
+            <img className="imagen" src="./H_I2.png" alt="H_I2" onClick={() => setCasilla("/casilla/H2")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./C3.png" alt="C3" />
-            <img className="imagen" src="./H_C3.png" alt="H_C3" />
+            <img className="imagen" src="./I3.png" alt="I3" />
+            <img className="imagen" src="./H_I3.png" alt="H_I3" onClick={() => setCasilla("/casilla/H3")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./C4.png" alt="C4" />
-            <img className="imagen" src="./H_C4.png" alt="H_C4" />
+            <img className="imagen" src="./I4.png" alt="I4" />
+            <img className="imagen" src="./H_I4.png" alt="H_I4"onClick={() => setCasilla("/casilla/H4")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./C5.png" alt="C5" />
-            <img className="imagen" src="./H_C5.png" alt="H_C5" />
+            <img className="imagen" src="./I5.png" alt="I5" />
+            <img className="imagen" src="./H_I5.png" alt="H_I5" onClick={() => setCasilla("/casilla/H5")}/>
           </div>
-          <div className="casilla">
-            <img className="imagen" src="./C6.png" alt="C6" />
-            <img className="imagen" src="./H_C6.png" alt="H_C6" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./C7.png" alt="C7" />
-            <img className="imagen" src="./H_C7.png" alt="H_C7" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./C8.png" alt="C8" />
-            <img className="imagen" src="./H_C8.png" alt="H_C8" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./C9.png" alt="C9" />
-            <img className="imagen" src="./H_C9.png" alt="H_C9" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./C10.png" alt="C10" />
-            <img className="imagen" src="./H_C10.png" alt="H_C10" />
-          </div>
+          <img className="casilla" src="./I6.png" alt="I6" />
         </div>
-        <div className="columnD">
+        <div className="columnJ">
           <div className="casilla">
-            <img className="imagen" src="./D1.png" alt="D1" />
-            <img className="imagen" src="./H_D1.png" alt="H_D1" />
+            <img className="imagen" src="./J1.png" alt="J1" />
+            <img className="imagen" src="./H_J1.png" alt="H_J1" onClick={() => setCasilla("/casilla/J1")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./D2.png" alt="D2" />
-            <img className="imagen" src="./H_D2.png" alt="H_D2" />
+            <img className="imagen" src="./J2.png" alt="J2" />
+            <img className="imagen" src="./H_J2.png" alt="H_J2" onClick={() => setCasilla("/casilla/J2")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./D3.png" alt="D3" />
-            <img className="imagen" src="./H_D3.png" alt="H_D3" />
+            <img className="imagen" src="./J3.png" alt="J3" />
+            <img className="imagen" src="./H_J3.png" alt="H_J3" onClick={() => setCasilla("/casilla/J3")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./D4.png" alt="D4" />
-            <img className="imagen" src="./H_D4.png" alt="H_D4" />
+            <img className="imagen" src="./J4.png" alt="J4" />
+            <img className="imagen" src="./H_J4.png" alt="H_J4" onClick={() => setCasilla("/casilla/J4")}/>
           </div>
-          <div className="casilla">
-            <img className="imagen" src="./D5.png" alt="D5" />
-            <img className="imagen" src="./H_D5.png" alt="H_D5" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./D6.png" alt="D6" />
-            <img className="imagen" src="./H_D6.png" alt="H_D6" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./D7.png" alt="D7" />
-            <img className="imagen" src="./H_D7.png" alt="H_D7" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./D8.png" alt="D8" />
-            <img className="imagen" src="./H_D8.png" alt="H_D8" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./D9.png" alt="D9" />
-            <img className="imagen" src="./H_D9.png" alt="H_D9" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./D10.png" alt="D10" />
-            <img className="imagen" src="./H_D10.png" alt="H_D10" />
-          </div>
+          <img className="casilla" src="./J5.png" alt="J5" />
+          <img className="casilla" src="./J6.png" alt="J6" />
         </div>
-        <div className="columnE">
-        <div className="casilla">
-            <img className="imagen" src="./E1.png" alt="E1" />
-            <img className="imagen" src="./H_E1.png" alt="H_E1" />
+        <div className="columnK">
+          <div className="casilla">
+            <img className="imagen" src="./K1.png" alt="K1" />
+            <img className="imagen" src="./H_K1.png" alt="H_K1" onClick={() => setCasilla("/casilla/K1")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./E2.png" alt="E2" />
-            <img className="imagen" src="./H_E2.png" alt="H_E2" />
+            <img className="imagen" src="./K2.png" alt="K2" />
+            <img className="imagen" src="./H_K2.png" alt="H_K2" onClick={() => setCasilla("/casilla/K2")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./E3.png" alt="E3" />
-            <img className="imagen" src="./H_E3.png" alt="H_E3" />
+            <img className="imagen" src="./K3.png" alt="K3" />
+            <img className="imagen" src="./H_K3.png" alt="H_K3" onClick={() => setCasilla("/casilla/K3")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./E4.png" alt="E4" />
-            <img className="imagen" src="./H_E4.png" alt="H_E4" />
+            <img className="imagen" src="./K4.png" alt="K4" />
+            <img className="imagen" src="./H_K4.png" alt="H_K4" onClick={() => setCasilla("/casilla/K4")}/>
           </div>
-          <div className="casilla">
-            <img className="imagen" src="./E5.png" alt="E5" />
-            <img className="imagen" src="./H_E5.png" alt="H_E5" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./E6.png" alt="E6" />
-            <img className="imagen" src="./H_E6.png" alt="H_E6" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./E7.png" alt="E7" />
-            <img className="imagen" src="./H_E7.png" alt="H_E7" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./E8.png" alt="E8" />
-            <img className="imagen" src="./H_E8.png" alt="H_E8" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./E9.png" alt="E9" />
-            <img className="imagen" src="./H_E9.png" alt="H_E9" />
-          </div>
-          <div className="casilla">
-            <img className="imagen" src="./E10.png" alt="E10" />
-            <img className="imagen" src="./H_E10.png" alt="H_E10" />
-          </div>
+          <img className="casilla" src="./K5.png" alt="K5" />
+          <img className="casilla" src="./K6.png" alt="K6" />
         </div>
-        <div className="columnF">
-        <div className="casilla">
-            <img className="imagen" src="./F1.png" alt="F1" />
-            <img className="imagen" src="./H_F1.png" alt="H_F1" />
+        <div className="columnL">
+          <div className="casilla">
+            <img className="imagen" src="./L1.png" alt="L1" />
+            <img className="imagen" src="./H_L1.png" alt="H_L1" onClick={() => setCasilla("/casilla/L1")}/>
           </div>
           <div className="casilla">
-            <img className="imagen" src="./F2.png" alt="F2" />
-            <img className="imagen" src="./H_F2.png" alt="H_F2" />
+            <img className="imagen" src="./L2.png" alt="L2" />
+            <img className="imagen" src="./H_L2.png" alt="H_L2" onClick={() => setCasilla("/casilla/L2")}/>
           </div>
-          <img className="casilla" src="./F3.png" alt="F3" />
-          <img className="casilla" src="./F4.png" alt="F4" />
-          <img className="casilla" src="./F5.png" alt="F5" />
-          <img className="casilla" src="./F6.png" alt="F6" />
-          <img className="casilla" src="./F7.png" alt="F7" />
-          <img className="casilla" src="./F8.png" alt="F8" />
-          <img className="casilla" src="./F9.png" alt="F9" />
+          <div className="casilla">
+            <img className="imagen" src="./L3.png" alt="L3" />
+            <img className="imagen" src="./H_L3.png" alt="H_L3" onClick={() => setCasilla("/casilla/L3")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./L4.png" alt="L4" />
+            <img className="imagen" src="./H_L4.png" alt="H_L4" onClick={() => setCasilla("/casilla/L4")}/>
+          </div>
+          <div className="casilla">5
+            <img className="imagen" src="./L5.png" alt="L5" />
+            <img className="imagen" src="./H_L5.png" alt="H_L5" onClick={() => setCasilla("/casilla/L5")}/>
+          </div>
+          <img className="casilla" src="./L6.png" alt="L6" />
+        </div>
+        <div className="columnM">
+          <div className="casilla">
+            <img className="imagen" src="./M1.png" alt="M1" />
+            <img className="imagen" src="./H_M1.png" alt="H_M1" onClick={() => setCasilla("/casilla/M1")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./M2.png" alt="M2" />
+            <img className="imagen" src="./H_M2.png" alt="H_M2" onClick={() => setCasilla("/casilla/M2")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./M3.png" alt="M3" />
+            <img className="imagen" src="./H_M3.png" alt="H_M3" onClick={() => setCasilla("/casilla/M3")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./M4.png" alt="M4" />
+            <img className="imagen" src="./H_M4.png" alt="H_M4" onClick={() => setCasilla("/casilla/M4")}/>
+          </div>
+          <div className="casilla">
+            <img className="imagen" src="./M5.png" alt="M5" />
+            <img className="imagen" src="./H_M5.png" alt="H_M5" onClick={() => setCasilla("/casilla/M5")}/>
+          </div>
+          <img className="casilla" src="./M6.png" alt="M6" />
+        </div>
+        <div className="columnLast">
+          <CasillaGrande />
         </div>
       </div>
-    );
-  }
-  
-  export default Biblio2;
+    </div>
+  );
+}
+
+export default Biblio2;
