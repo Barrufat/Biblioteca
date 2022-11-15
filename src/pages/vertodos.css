@@ -31,3 +31,26 @@ p{
     color: rgb(27, 27, 27);
     margin: 0px;
 }
+
+input.input2 {
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
+    background-color:rgb(203, 203, 203);
+    font-size: 30px;
+}
+
+.formulario {
+    display:flex;
+    align-items: center;
+    margin: 30px;
+}
+
+form {
+    display:flex;
+    margin-right: 10px;
+}
+
+.buscarButton{
+    font-size: 30px;
+}

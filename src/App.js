@@ -13,12 +13,12 @@ import Addbook from './pages/addbook';
 
 function App() {
   return (
-    <div className="contprincipal">
+    <div>
       <Router>
         <header>
-          <Link className="cabezal" to="/"><h1 >Biblioteca</h1></Link>
-          <Link className="cabezal" to="/vertodos"><h1 >Ver todos</h1></Link>
-          <Link className="cabezal" to="/addbook"><h1 >Añadir libro</h1></Link>
+          <Link className="cabezal" to="/"><h4>Biblioteca</h4></Link>
+          <Link className="cabezal" to="/vertodos"><h4>Ver todos</h4></Link>
+          <Link className="cabezal" to="/addbook"><h4>Añadir libro</h4></Link>
         </header>
         <main>
           <Routes>

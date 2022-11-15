@@ -1,10 +1,10 @@
-
-div.libreria{
-  position:absolute;
-  display:flex;
+div.libreria {
+  position: absolute;
+  display: flex;
   margin-left: 20px;
-  margin-top:20px;
+  margin-top: 20px;
 }
+
 .casilla {
   position: relative;
   overflow: hidden;
@@ -66,7 +66,6 @@ div.libreria{
 .columnLast {
   display: flex;
   flex-direction: column;
-  width: 1000px;
   margin-left: 50px;
 }
 
@@ -89,13 +88,35 @@ div.libreria{
   background-color: rgb(180, 180, 180);
 }
 
-.tituloLibro{
+.tituloLibro {
   color: white;
   padding: 0px;
   font-size: 20px;
 }
 
-p{
+p {
   color: rgb(27, 27, 27);
   margin: 0px;
+}
+
+.biblioPeque {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.biblio img:first-child {
+  display: flex;
+}
+
+.biblio img:last-child {
+  display: none;
+}
+
+.biblio:hover img:first-child {
+  display: none;
+}
+
+.biblio:hover img:last-child {
+  display: flex;
 }

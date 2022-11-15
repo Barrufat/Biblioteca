@@ -27,28 +27,30 @@ div.libreria{
   display: none;
 }
 
+
+
 .columnG {
   display: flex;
   flex-direction: column;
-  width: 246px;
+  width: 151px;
 }
 
 .columnH {
   display: flex;
   flex-direction: column;
-  width: 159px;
+  width: 73px;
 }
 
 .columnI {
   display: flex;
   flex-direction: column;
-  width: 134px;
+  width: 77px;
 }
 
 .columnJ {
   display: flex;
   flex-direction: column;
-  width: 121px;
+  width: 97px;
 }
 
 .columnK {
@@ -60,19 +62,18 @@ div.libreria{
 .columnL {
   display: flex;
   flex-direction: column;
-  width: 103px;
+  width: 118px;
 }
 
 .columnM {
   display: flex;
   flex-direction: column;
-  width: 103px;
+  width: 224px;
 }
 
 .columnLast {
   display: flex;
   flex-direction: column;
-  width: 1000px;
   margin-left: 50px;
 }
 
