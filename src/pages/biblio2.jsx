@@ -25,7 +25,7 @@ function Biblio2() {
   }, [casilla])
 
   function eliminarLibro(e) {
-    axios.delete("http://localhost:3030/api/libros/" + e.id)
+    axios.delete("https://biblioapi2-production.up.railway.app/api/libros" + e.id)
       .then(res => {
         console.log(res.data)
         getLibros();
