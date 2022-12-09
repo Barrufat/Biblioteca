@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function SearchForm() {
-    const url = "http://localhost:3030/api/libros/"
+    const url = "https://biblioapi2-production.up.railway.app/api/libros/"
     const [nombre, setNombre] = useState("")
     const [autorx, setAutorx] = useState("")
     const [libros, setLibros] = useState([]);
@@ -47,26 +47,6 @@ function SearchForm() {
         getLibros2();
         console.log("Libros" + libros)
     }, [autorx])
-
-    
-
-    // function submit(e) {
-    //     e.preventDefault();
-    //     axios.post(url, {
-    //         nombre: data.nombre,
-    //         autorx: data.autorx,
-    //         genero: data.genero,
-    //         sinopsis: data.sinopsis,
-    //         imagen: data.imagen,
-    //         casilla: data.casilla
-    //     })
-    //         .then(res => {
-    //             console.log(res.data)
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
 
     return (
         <div className="formulario">
