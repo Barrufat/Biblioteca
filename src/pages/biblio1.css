@@ -67,16 +67,17 @@ div.libreria {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  width:800px;
 }
 
-.grid {
+.gridBib {
   display: grid;
   grid-template-columns: repeat(auto-fill, 230px);
   gap: 20px;
   padding: 20px;
 }
 
-.card {
+.cardBib {
   background-color: rgb(203, 203, 203);
   border-radius: 5px;
   text-align: center;
@@ -84,14 +85,20 @@ div.libreria {
   list-style: none;
 }
 
-.card:hover {
+.cardBib:hover {
   background-color: rgb(180, 180, 180);
 }
 
-.tituloLibro {
+.tituloLibroBib {
   color: white;
   padding: 0px;
   font-size: 20px;
+}
+
+.imagenLibroBib{
+  width:100%;
+  margin-bottom:10px;
+  border-radius: 5px;
 }
 
 p {

@@ -8,15 +8,17 @@ function Biblio2() {
   const [casilla, setCasilla] = useState("/casilla/A0");
   const [libros, setLibros] = useState([]);
 
-  const URL = ("http://localhost:3030/api/libros" + casilla);
+  const URL = ("https://biblioapi2-production.up.railway.app/api/libros" + casilla);
 
-  function getLibros() {
-    fetch(URL)
-      .then(results => results.json())
-      .then(results => setLibros(results.data))
-      .catch(err => console.log(err));
-    console.log("libros" + libros);
-  }
+  const getLibros = async () => {
+    try {
+        const response = await axios.get(URL);
+        setLibros(response.data);
+    } catch (err) {
+      setLibros([])
+        console.log(err);
+    }
+}
 
   useEffect(() => {
     getLibros();
@@ -37,11 +39,11 @@ function Biblio2() {
     return (
       <div className="casillaGrande">
         <h1>{libros.casilla}</h1>
-        <ul className="grid">
+        <ul className="gridBib">
           {libros.map(libro => (
-            <li key={libro.id} className="card">
-              <h1 className="tituloLibro">{libro.nombre}</h1>
-              <img className="imagenLibro" width="200px" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
+            <li key={libro.id} className="cardBib">
+              <h1 className="tituloLibroBib">{libro.nombre}</h1>
+              <img className="imagenLibroBib" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
               <p>Por {libro.autorx}</p>
               <p>Generos: {libro.genero}</p>
               <p>{libro.sinopsis}</p>

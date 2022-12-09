@@ -7,7 +7,6 @@ import Biblio1 from './pages/biblio1';
 import LandingPage from './pages/landingPage';
 import Biblio2 from './pages/biblio2';
 import Vertodos from './pages/vertodos';
-import LibrosCasilla from './pages/librosCasilla';
 import Addbook from './pages/addbook';
 
 
@@ -27,7 +26,6 @@ function App() {
             <Route path="/addbook" element={<Addbook/>} />
             <Route path="/biblio1" element={<Biblio1 />} />
             <Route path="/biblio2" element={<Biblio2 />} />
-            <Route path="/librosCasilla" element={<LibrosCasilla />} />
           </Routes>
         </main>
       </Router>

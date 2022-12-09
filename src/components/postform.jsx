@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function PostForm() {
-    const url = "http://localhost:3030/api/libros/create"
+    const url = "https://biblioapi2-production.up.railway.app/api/libros"
     const [data, setData] = useState({ nombre: "", autorx: "", genero: "", sinopsis: "", imagen: "", casilla: "" })
 
     function handle(e) {
@@ -13,9 +13,9 @@ function PostForm() {
         console.log(newdata)
     }
 
-    function submit(e) {
+    async function submit(e) {
         e.preventDefault();
-        axios.post(url, {
+        await axios.post(url, {
             nombre: data.nombre,
             autorx: data.autorx,
             genero: data.genero,
