@@ -1,6 +1,5 @@
 
-div.libreria{
-  position:absolute;
+div.libreria2 {
   display:flex;
   margin-left: 20px;
   margin-top:20px;
@@ -56,7 +55,7 @@ div.libreria{
 .columnK {
   display: flex;
   flex-direction: column;
-  width: 103px;
+  width: 110px;
 }
 
 .columnL {
@@ -78,11 +77,11 @@ div.libreria{
   width:800px;
 }
 
-.gridBib {
+.gridBib2 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 230px);
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, 150px);
+  gap: 10px;
+  padding: 10px;
 }
 
 .cardBib {
@@ -103,13 +102,44 @@ div.libreria{
   font-size: 20px;
 }
 
+.autorLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 17px;
+}
+
+.generoLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 15px;
+}
+
+.textoLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 13px;
+}
+
+.textoClosed{
+  display:none;
+}
+
+.eliminarLibroBib{
+  background-color: rgb(124, 124, 124);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  border:none;
+  padding:5px;
+  margin-top: 7px;
+}
+
 .imagenLibroBib{
   width:100%;
   margin-bottom:10px;
   border-radius: 5px;
 }
 
-p{
-  color: rgb(27, 27, 27);
-  margin: 0px;
+.imagen{
+  width: 100%;
 }

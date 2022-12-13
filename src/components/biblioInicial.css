@@ -1,19 +1,15 @@
 .containerbib {
-    position: absolute;
     display: flex;
-    width: 100%;
   }
 
   .biblio1 {
     display: flex;
     flex-direction: column;
-    width: 900px;
   }
 
   .biblio2 {
     display: flex;
     flex-direction: column;
-    width: 900px;
   }
     
   .biblio img:first-child {

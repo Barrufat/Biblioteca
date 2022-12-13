@@ -12,13 +12,13 @@ function Biblio2() {
 
   const getLibros = async () => {
     try {
-        const response = await axios.get(URL);
-        setLibros(response.data);
+      const response = await axios.get(URL);
+      setLibros(response.data);
     } catch (err) {
       setLibros([])
-        console.log(err);
+      console.log(err);
     }
-}
+  }
 
   useEffect(() => {
     getLibros();
@@ -36,18 +36,34 @@ function Biblio2() {
   }
 
   function CasillaGrande() {
+
+    const [displayText, setDisplayText] = useState ('textoClosed');
+    const [toggleText, setToggleText] = useState (false);
+
+    const switchText = () => {
+      setToggleText(!toggleText)
+    }
+
+    useEffect(() => {
+      if(toggleText){
+        setDisplayText("textoLibroBib")
+      } else {
+        setDisplayText('textoClosed')
+      }
+    }, [toggleText])
+
     return (
       <div className="casillaGrande">
         <h1>{libros.casilla}</h1>
-        <ul className="gridBib">
+        <ul className="gridBib2">
           {libros.map(libro => (
             <li key={libro.id} className="cardBib">
-              <h1 className="tituloLibroBib">{libro.nombre}</h1>
-              <img className="imagenLibroBib" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
-              <p>Por {libro.autorx}</p>
-              <p>Generos: {libro.genero}</p>
-              <p>{libro.sinopsis}</p>
-              <button onClick={() => eliminarLibro(libro)}>Eliminar</button>
+            <h1 className="tituloLibroBib">{libro.nombre}</h1>
+              <img className="imagenLibroBib" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} onClick={switchText} />
+              <h3 className="autorLibroBib">{libro.autorx}</h3>
+              <h4 className="generoLibroBib">Generos: {libro.genero}</h4>
+              <p className={displayText}>{libro.sinopsis}</p>
+              <button className='eliminarLibroBib' onClick={() => eliminarLibro(libro)}>Eliminar</button>
             </li>
           ))}
         </ul>
@@ -57,11 +73,11 @@ function Biblio2() {
 
   return (
     <div className="containerBib2">
-      <div className="libreria">
+      <div className="libreria2">
         <div className="biblioPeque">
           <Link className="biblio" to="/biblio1">
-            <img width="300px" src="./biblio1.png" alt="biblio1" />
-            <img width="300px" src="./H_biblio1.png" alt="H_biblio1" />
+            <img  width="260px" src="./biblio1.png" alt="biblio1" />
+            <img  width="260px" src="./H_biblio1.png" alt="H_biblio1" />
           </Link>
         </div>
         <div className="columnG">

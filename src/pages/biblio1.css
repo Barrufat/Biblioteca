@@ -1,5 +1,4 @@
-div.libreria {
-  position: absolute;
+div.libreria1 {
   display: flex;
   margin-left: 20px;
   margin-top: 20px;
@@ -27,40 +26,44 @@ div.libreria {
   display: none;
 }
 
+.imagen{
+  width: 100%;
+}
+
 .columnA {
   display: flex;
   flex-direction: column;
-  width: 246px;
+  width: 209.1px;
 }
 
 .columnB {
   display: flex;
   flex-direction: column;
-  width: 159px;
+  width: 135.15px;
 }
 
 .columnC {
   display: flex;
   flex-direction: column;
-  width: 134px;
+  width: 113.9px;
 }
 
 .columnD {
   display: flex;
   flex-direction: column;
-  width: 121px;
+  width: 102.85px;
 }
 
 .columnE {
   display: flex;
   flex-direction: column;
-  width: 103px;
+  width: 87.55px;
 }
 
 .columnF {
   display: flex;
   flex-direction: column;
-  width: 103px;
+  width: 87.55px;
 }
 
 .columnLast {
@@ -70,11 +73,11 @@ div.libreria {
   width:800px;
 }
 
-.gridBib {
+.gridBib1 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 230px);
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, 150px);
+  gap: 10px;
+  padding: 10px;
 }
 
 .cardBib {
@@ -95,15 +98,42 @@ div.libreria {
   font-size: 20px;
 }
 
+.autorLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 17px;
+}
+
+.generoLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 15px;
+}
+
+.textoLibroBib {
+  color: rgb(87, 87, 87);
+  padding: 0px;
+  font-size: 13px;
+}
+
+.textoClosed{
+  display:none;
+}
+
+.eliminarLibroBib{
+  background-color: rgb(124, 124, 124);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  border:none;
+  padding:5px;
+  margin-top: 7px;
+}
+
 .imagenLibroBib{
   width:100%;
   margin-bottom:10px;
   border-radius: 5px;
-}
-
-p {
-  color: rgb(27, 27, 27);
-  margin: 0px;
 }
 
 .biblioPeque {

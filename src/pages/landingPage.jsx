@@ -1,6 +1,5 @@
 
 import BiblioInicial from '../components/biblioInicial';
-import './landingPage.css'
 
 
 function LandingPage() {

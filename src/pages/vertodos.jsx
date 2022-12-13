@@ -24,7 +24,7 @@ function Vertodos() {
     }, [])
 
     useEffect(() => {
-        console.log('Libros: ' +  JSON.stringify(libros));
+        console.log('Libros: ' + JSON.stringify(libros));
     }, [libros])
 
 
@@ -49,6 +49,21 @@ function Vertodos() {
             })
     }
 
+    const [displayText, setDisplayText] = useState ('textoClosed');
+    const [toggleText, setToggleText] = useState (false);
+
+    const switchText = () => {
+      setToggleText(!toggleText)
+    }
+
+    useEffect(() => {
+      if(toggleText){
+        setDisplayText("textoLibroBib")
+      } else {
+        setDisplayText('textoClosed')
+      }
+    }, [toggleText])
+
     return (
         <>
             <div className="formulario">
@@ -72,12 +87,11 @@ function Vertodos() {
                 {libros.map(libro => (
                     <li key={libro.id} className="card">
                         <h1 className="tituloLibro">{libro.nombre}</h1>
-                        <img className="imagenLibro" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
-                        <h3>{libro.autorx}</h3>
-                        <h4>Generos: {libro.genero}</h4>
-                        <p>{libro.sinopsis}</p>
-                        <h4>Casilla: {libro.casilla}</h4>
-                        <button onClick={() => eliminarLibro(libro)}>Eliminar</button>
+                        <img className="imagenLibro" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} onClick={switchText} />
+                        <h3 className="autorLibro">{libro.autorx}</h3>
+                        <h4 className="generoLibro">Generos: {libro.genero}</h4>
+                        <p className={displayText}>{libro.sinopsis}</p>
+                        <button className='eliminarLibro' onClick={() => eliminarLibro(libro)}>Eliminar</button>
                     </li>
                 ))}
             </ul>

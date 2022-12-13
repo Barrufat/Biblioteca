@@ -11,13 +11,13 @@ function Biblio1() {
 
   const getLibros = async () => {
     try {
-        const response = await axios.get(URL);
-        setLibros(response.data);
+      const response = await axios.get(URL);
+      setLibros(response.data);
     } catch (err) {
       setLibros([])
-        console.log(err);
+      console.log(err);
     }
-}
+  }
 
   useEffect(() => {
     getLibros();
@@ -37,18 +37,34 @@ function Biblio1() {
 
 
   function CasillaGrande() {
+    const [displayText, setDisplayText] = useState ('textoClosed');
+    const [toggleText, setToggleText] = useState (false);
+
+    const switchText = () => {
+      setToggleText(!toggleText)
+    }
+
+    useEffect(() => {
+      if(toggleText){
+        setDisplayText("textoLibroBib")
+      } else {
+        setDisplayText('textoClosed')
+      }
+    }, [toggleText])
+    
+
     return (
       <div className="casillaGrande">
         <h1>{libros.casilla}</h1>
-        <ul className="gridBib">
+        <ul className="gridBib1">
           {libros.map(libro => (
             <li key={libro.id} className="cardBib">
               <h1 className="tituloLibroBib">{libro.nombre}</h1>
-              <img className="imagenLibroBib" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} />
-              <p>Por {libro.autorx}</p>
-              <p>Generos: {libro.genero}</p>
-              <p>{libro.sinopsis}</p>
-              <button onClick={() => eliminarLibro(libro)}>Eliminar</button>
+              <img className="imagenLibroBib" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} onClick={switchText} />
+              <h3 className="autorLibroBib">{libro.autorx}</h3>
+              <h4 className="generoLibroBib">Generos: {libro.genero}</h4>
+              <p className={displayText}>{libro.sinopsis}</p>
+              <button className='eliminarLibroBib' onClick={() => eliminarLibro(libro)}>Eliminar</button>
             </li>
           ))}
         </ul>
@@ -63,7 +79,7 @@ function Biblio1() {
 
   return (
     <div className="containerBib1">
-      <div className="libreria">
+      <div className="libreria1">
         <div className="columnA">
           <div className="casilla">
             <img className="imagen" src="./A1.png" alt="A1" />
