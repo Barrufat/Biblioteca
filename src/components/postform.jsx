@@ -5,12 +5,13 @@ import axios from 'axios';
 function PostForm() {
     const url = "https://biblioapi2-production.up.railway.app/api/libros"
     const [data, setData] = useState({ nombre: "", autorx: "", genero: "", sinopsis: "", imagen: "", casilla: "" })
-
+    const [displayMessage, setDisplayMessage] = useState ('closed');
     function handle(e) {
         const newdata = { ...data }
         newdata[e.target.id] = e.target.value
         setData(newdata)
         console.log(newdata)
+        setDisplayMessage('closed')
     }
 
     async function submit(e) {
@@ -29,6 +30,9 @@ function PostForm() {
             .catch(error => {
                 console.log(error)
             })
+
+            setData({ nombre: "", autorx: "", genero: "", sinopsis: "", imagen: "", casilla: "" });
+            setDisplayMessage('openMessage');
     }
 
     return (
@@ -40,7 +44,10 @@ function PostForm() {
                 <input onChange={(e) => handle(e)} id="genero" value={data.genero} placeholder="genero" type="text"></input>
                 <input onChange={(e) => handle(e)} id="sinopsis" value={data.sinopsis} placeholder="sinopsis" type="text"></input>
                 <input onChange={(e) => handle(e)} id="imagen" value={data.imagen} placeholder="imagen" type="text"></input>
-                <button className='nuevoLibro'type="submit">Añadir libro</button>
+                <div>
+                <button className='nuevoLibro' type="submit">Añadir libro</button>
+                <p className={displayMessage}> Libro añadido a biblioteca!</p>
+                </div>
             </form>
         </div>
     );

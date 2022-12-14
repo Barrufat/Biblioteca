@@ -55,7 +55,6 @@ function Biblio1() {
 
     return (
       <div className="casillaGrande">
-        <h1>{libros.casilla}</h1>
         <ul className="gridBib1">
           {libros.map(libro => (
             <li key={libro.id} className="cardBib">

@@ -91,6 +91,7 @@ function Vertodos() {
                         <h3 className="autorLibro">{libro.autorx}</h3>
                         <h4 className="generoLibro">Generos: {libro.genero}</h4>
                         <p className={displayText}>{libro.sinopsis}</p>
+                        <h1 className="tituloLibro">{libro.casilla}</h1>
                         <button className='eliminarLibro' onClick={() => eliminarLibro(libro)}>Eliminar</button>
                     </li>
                 ))}

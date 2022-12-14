@@ -20,6 +20,7 @@ div.libreria1 {
 
 .casilla:hover img:last-child {
   display: flex;
+  cursor: pointer;
 }
 
 .casilla:hover img:first-child {
