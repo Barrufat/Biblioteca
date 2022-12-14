@@ -32,7 +32,7 @@ function PostForm() {
     }
 
     return (
-        <div className="formulario">
+        <div className="formularioPost">
             <form onSubmit={(e) => submit(e)}>
                 <input onChange={(e) => handle(e)} id="nombre" value={data.nombre} placeholder="nombre" type="text"></input>
                 <input onChange={(e) => handle(e)} id="casilla" value={data.casilla} placeholder="casilla" type="text"></input>
@@ -40,7 +40,7 @@ function PostForm() {
                 <input onChange={(e) => handle(e)} id="genero" value={data.genero} placeholder="genero" type="text"></input>
                 <input onChange={(e) => handle(e)} id="sinopsis" value={data.sinopsis} placeholder="sinopsis" type="text"></input>
                 <input onChange={(e) => handle(e)} id="imagen" value={data.imagen} placeholder="imagen" type="text"></input>
-                <button type="submit">Submit</button>
+                <button className='nuevoLibro'type="submit">Añadir libro</button>
             </form>
         </div>
     );

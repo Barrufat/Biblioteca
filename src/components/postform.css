@@ -7,10 +7,21 @@ input {
     font-size: 30px;
 }
 
-.formulario {
-    display:flex;
+.formularioPost {
     align-items: center;
     margin: 30px;
+}
+
+.nuevoLibro{
+    margin-left: 560px;
+    margin-bottom: 30px;
+    background-color: rgb(124, 124, 124);
+    border-radius: 12px;
+    color: white;
+    font-size: 30px;
+    border:none;
+    padding-left:8px;
+    padding-right:8px;
 }
 
 

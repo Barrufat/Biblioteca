@@ -12,7 +12,7 @@ function Vertodos() {
 
     const getLibros = async () => {
         try {
-            const response = await axios.get("https://biblioapi2-production.up.railway.app/api/libros" + buscar);
+            const response = await axios.get("https://biblioapi2-production.up.railway.app/api/libros/" + buscar);
             setLibros(response.data);
         } catch (err) {
             console.log(err);
@@ -21,7 +21,7 @@ function Vertodos() {
 
     useEffect(() => {
         getLibros();
-    }, [])
+    }, [buscar])
 
     useEffect(() => {
         console.log('Libros: ' + JSON.stringify(libros));
@@ -35,7 +35,7 @@ function Vertodos() {
 
     const handleSubmit2 = (e) => {
         e.preventDefault();
-        setBuscar("casilla/" + searchText2);
+        setBuscar("autorx/" + searchText2);
     }
 
     function eliminarLibro(e) {
@@ -72,15 +72,15 @@ function Vertodos() {
                         placeholder=" Buscar por nombre"
                         type="text" value={searchText}
                         onChange={(e) => setSearchTExt(e.target.value)}></input>
-                    <button className="buscarButton" type="submit">Buscar</button>
+                    <button className="buscarLibro" type="submit">Buscar</button>
                 </form>
                 <br />
                 <form onSubmit={handleSubmit2}>
                     <input className="input2"
-                        placeholder=" Buscar por casilla"
+                        placeholder=" Buscar por autorx"
                         type="text" value={searchText2}
                         onChange={(e) => setSearchTExt2(e.target.value)}></input>
-                    <button className="buscarButton" type="submit">Buscar</button>
+                    <button className="buscarLibro" type="submit">Buscar</button>
                 </form>
             </div>
             <ul className="grid">

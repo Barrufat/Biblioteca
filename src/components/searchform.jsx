@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function SearchForm() {
-    const url = "https://biblioapi2-production.up.railway.app/api/libros/"
+    const url1 = "https://biblioapi2-production.up.railway.app/api/libros/nombre/"
+    const url2 = "https://biblioapi2-production.up.railway.app/api/libros/autorx/"
     const [nombre, setNombre] = useState("")
     const [autorx, setAutorx] = useState("")
     const [libros, setLibros] = useState([]);
@@ -22,20 +23,26 @@ function SearchForm() {
         console.log(newdata)
     }
 
-    function getLibros1() {
-        fetch(url + nombre)
-            .then(results => results.json())
-            .then(results => setLibros(results.data))
-            .catch(err => console.log(err))
-        console.log("Libros" + libros)
+    const getLibros1 = async () => {
+        try {
+            const response = await axios.get(url1 + nombre);
+            setLibros(response.data);
+            console.log("Libros" + libros)
+        } catch (err) {
+            setLibros([])
+            console.log(err);
+        }
     }
 
-    function getLibros2() {
-        fetch(url + autorx)
-            .then(results => results.json())
-            .then(results => setLibros(results.data))
-            .catch(err => console.log(err))
-        console.log("Libros" + libros)
+    const getLibros2 = async () => {
+        try {
+            const response = await axios.get(url2 + autorx);
+            setLibros(response.data);
+            console.log("Libros" + libros)
+        } catch (err) {
+            setLibros([])
+            console.log(err);
+        }
     }
 
     useEffect(() => {
