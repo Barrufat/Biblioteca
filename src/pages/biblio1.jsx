@@ -153,7 +153,7 @@ function Biblio1() {
             <img className="imagen" src="./H_C3.png" alt="H_C3" onClick={() => setCasilla("/casilla/C3")} />
           </div>
           <div className="casilla">
-            <img className="imagen" src="./C4.png" alt="C4" onClick={() => setCasilla("/casilla/C4")} />
+            <img className="imagen" src="./C4.png" alt="C4" />
             <img className="imagen" src="./H_C4.png" alt="H_C4" onClick={() => setCasilla("/casilla/C4")} />
           </div>
           <div className="casilla">
@@ -267,8 +267,8 @@ function Biblio1() {
         </div>
         <div className="columnF">
           <div className="casilla">
-            <img className="imagen" src="./F1.png" alt="F1" onClick={() => setCasilla("/casilla/F1")} />
-            <img className="imagen" src="./H_F1.png" alt="H_F1" />
+            <img className="imagen" src="./F1.png" alt="F1"/>
+            <img className="imagen" src="./H_F1.png" alt="H_F1" onClick={() => setCasilla("/casilla/F1")} />
           </div>
           <div className="casilla">
             <img className="imagen" src="./F2.png" alt="F2" />
