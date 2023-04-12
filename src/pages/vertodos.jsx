@@ -2,6 +2,10 @@
 import { useEffect, useState } from 'react';
 import './vertodos.css'
 import axios from 'axios';
+import Modal from '../components/modal';
+
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 function Vertodos() {
@@ -9,6 +13,7 @@ function Vertodos() {
     const [searchText, setSearchTExt] = useState("");
     const [searchText2, setSearchTExt2] = useState("");
     const [buscar, setBuscar] = useState("");
+    const [modal, setModal] = useState(false);
 
     const getLibros = async () => {
         try {
@@ -49,24 +54,32 @@ function Vertodos() {
             })
     }
 
-    const [displayText, setDisplayText] = useState ('textoClosed');
-    const [toggleText, setToggleText] = useState (false);
+    const [displayText, setDisplayText] = useState('textoClosed');
+    const [toggleText, setToggleText] = useState(false);
 
     const switchText = () => {
-      setToggleText(!toggleText)
+        setToggleText(!toggleText)
     }
 
     useEffect(() => {
-      if(toggleText){
-        setDisplayText("textoLibroBib")
-      } else {
-        setDisplayText('textoClosed')
-      }
+        if (toggleText) {
+            setDisplayText("textoLibroBib")
+        } else {
+            setDisplayText('textoClosed')
+        }
     }, [toggleText])
 
+    function eliminarLibro() {
+        setModal(true);
+    }
+
+    const cerrarModal = (estado) => {
+        setModal(estado);
+    }
+
     return (
-        <>
-            <div className="formulario">
+        <div className='gridContainer'>
+            <div className="formulario" id="formulario">
                 <form onSubmit={handleSubmit}>
                     <input className="input2"
                         placeholder=" Buscar por nombre"
@@ -83,20 +96,25 @@ function Vertodos() {
                     <button className="buscarLibro" type="submit">Buscar</button>
                 </form>
             </div>
-            <ul className="grid">
+            <ul className="grid" id="grid">
                 {libros.map(libro => (
-                    <li key={libro.id} className="card">
-                        <h1 className="tituloLibro">{libro.nombre}</h1>
-                        <img className="imagenLibro" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} onClick={switchText} />
-                        <h3 className="autorLibro">{libro.autorx}</h3>
-                        <h4 className="generoLibro">Generos: {libro.genero}</h4>
-                        <p className={displayText}>{libro.sinopsis}</p>
-                        <h1 className="tituloLibro">{libro.casilla}</h1>
-                        <button className='eliminarLibro' onClick={() => eliminarLibro(libro)}>Eliminar</button>
-                    </li>
+                    <LazyLoadComponent effect="blur">
+                        <li key={libro.id} className="card">
+                            <h1 className="tituloLibro">{libro.nombre}</h1>
+                            <img className="imagenLibro" src={"./" + (libro.imagen) + ".png"} alt={libro.nombre} onClick={switchText} />
+                            <h3 className="autorLibro">{libro.autorx}</h3>
+                            <h4 className="generoLibro">Generos: {libro.genero}</h4>
+                            <p className={displayText}>{libro.sinopsis}</p>
+                            <h1 className="tituloLibro">{libro.casilla}</h1>
+                            <button className='eliminarLibro' onClick={() => eliminarLibro(libro)}>Eliminar</button>
+                        </li>
+                    </LazyLoadComponent>
                 ))}
             </ul>
-        </>
+            <Modal estado={modal} cambiarEstado={cerrarModal} >
+                <h3 className='tituloCasilla'>Función deshabilitada para este prototipo</h3>
+            </Modal>
+        </div>
     );
 }
 

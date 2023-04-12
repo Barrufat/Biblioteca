@@ -1,0 +1,68 @@
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    z-index: 3;
+    cursor:pointer;
+}
+
+@keyframes appear{
+0% {
+    transform: scale(0);
+    opacity: 0.0;
+}
+
+60% {
+    transform: scale(1.05);
+}
+80% {
+    transform: scale(0.95);
+    opacity: 1;
+}
+100% {
+    transform: scale(1);
+    opacity: 1;
+}
+}
+
+.contModal {
+    z-index: 4;
+    padding: 30px;
+    animation-name: appear;
+    /* -webkit-animation-name: appear; */
+    animation-duration: 0.75s;
+    /* -webkit-animation-duration: 0.75s; */
+    animation-timing-function: ease-in-out;
+    /* -webkit-animation-timing-function: ease-in-out; */
+    visibility: visible !important;
+    display:flex;
+    background-color: #d6f3df;
+    border-radius: 10px;
+}
+
+/* button.cerrarModal {
+    font-size: 40px;
+    margin: 30px;
+    padding: 0px 18px 0px 18px;
+    border: 1px #896FA3 solid;
+    border-radius: 100%;
+    background: #a18ab8;
+    cursor:pointer;
+    transition: .3s ease all;
+    color: #d6f3df;
+    top:20px;
+    right:20px;
+}
+
+button.cerrarModal:hover{
+    transform: scale3d(1.05, 1.05, 1);
+    transition: all 1s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+} */

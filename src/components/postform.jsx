@@ -36,20 +36,17 @@ function PostForm() {
     }
 
     return (
-        <div className="formularioPost">
-            <form onSubmit={(e) => submit(e)}>
-                <input onChange={(e) => handle(e)} id="nombre" value={data.nombre} placeholder="nombre" type="text"></input>
-                <input onChange={(e) => handle(e)} id="casilla" value={data.casilla} placeholder="casilla" type="text"></input>
-                <input onChange={(e) => handle(e)} id="autorx" value={data.autorx} placeholder="autorx" type="text"></input>
-                <input onChange={(e) => handle(e)} id="genero" value={data.genero} placeholder="genero" type="text"></input>
-                <input onChange={(e) => handle(e)} id="sinopsis" value={data.sinopsis} placeholder="sinopsis" type="text"></input>
-                <input onChange={(e) => handle(e)} id="imagen" value={data.imagen} placeholder="imagen" type="text"></input>
-                <div>
+            <form className="formularioPost" onSubmit={(e) => submit(e)}>
+                <input onChange={(e) => handle(e)} id="nombre" value={data.nombre} placeholder="Nombre" type="text"></input>
+                <input onChange={(e) => handle(e)} id="casilla" value={data.casilla} placeholder="Casilla" type="text"></input>
+                <input onChange={(e) => handle(e)} id="autorx" value={data.autorx} placeholder="Autorx" type="text"></input>
+                <input onChange={(e) => handle(e)} id="genero" value={data.genero} placeholder="Genero" type="text"></input>
+                <input onChange={(e) => handle(e)} id="sinopsis" value={data.sinopsis} placeholder="Sinopsis" type="text"></input>
+                <input onChange={(e) => handle(e)} id="imagen" value={data.imagen} placeholder="Imagen" type="text"></input>
+                
                 <button className='nuevoLibro' type="submit">Añadir libro</button>
                 <p className={displayMessage}> Libro añadido a biblioteca!</p>
-                </div>
             </form>
-        </div>
     );
 }
 

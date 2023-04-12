@@ -1,14 +1,19 @@
 
 div.libreria2 {
   display:flex;
-  margin-left: 20px;
-  margin-top:20px;
+padding-left: 20px;
+padding-top:20px;
 }
 .casilla {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
+
+.containerBib2{
+  width: 100%;
+}
+
 
 .casilla img:first-child {
   display: flex;
@@ -75,18 +80,25 @@ div.libreria2 {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
-  width:800px;
+  width: 100%;
+}
+
+.tituloCasilla{
+  margin-top: 20px;
+  color: #896FA3;
+  justify-content: center;
+  display: flex;
 }
 
 .gridBib2 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, 220px);
+  gap: 15px;
   padding: 10px;
 }
 
 .cardBib {
-  background-color: rgb(203, 203, 203);
+  background: rgba(255, 255, 255, 0);
   border-radius: 5px;
   text-align: center;
   padding: 10px;
@@ -94,29 +106,32 @@ div.libreria2 {
 }
 
 .cardBib:hover {
-  background-color: rgb(180, 180, 180);
-}
+  background: linear-gradient(180deg, #F0D6AE 50%,#A38B67 100%);
+  transform: scale3d(1.05, 1.05, 1);
+  transition: all 1s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 
 .tituloLibroBib {
-  color: white;
+  color: #A38B67;
   padding: 0px;
   font-size: 20px;
 }
 
 .autorLibroBib {
-  color: rgb(87, 87, 87);
+  color: #d6f3df;
   padding: 0px;
   font-size: 17px;
 }
 
 .generoLibroBib {
-  color: rgb(87, 87, 87);
+  color: #d6f3df;
   padding: 0px;
   font-size: 15px;
 }
 
 .textoLibroBib {
-  color: rgb(87, 87, 87);
+  color: #d6f3df;
   padding: 0px;
   font-size: 13px;
 }
@@ -126,13 +141,19 @@ div.libreria2 {
 }
 
 .eliminarLibroBib{
-  background-color: rgb(124, 124, 124);
+  background-color: #896FA3;
   border-radius: 12px;
-  color: white;
+  color: #d6f3df;
   font-size: 15px;
   border:none;
   padding:5px;
   margin-top: 7px;
+}
+
+.eliminarLibroBib:hover{
+  transform: scale3d(1.05, 1.05, 1);
+  transition: all 1s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .imagenLibroBib{

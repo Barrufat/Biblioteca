@@ -1,18 +1,28 @@
 header {
-    background-color: darkgrey;
+    background-color: #F0D6AE;
     display:flex;
-    justify-content: space-around;
+    justify-content: end;
+    height: 50px;
+}
+
+main {
+    min-height: 100vh;
+    height: 100%;
+    /* display:flex;
+    justify-content: center; */
+    background: linear-gradient(180deg, #d6f3df 0%, #A38B67 40%, #896FA3 100%);
 }
 
 .cabezal{
-    margin-bottom:0px;
-    padding: 5px;
-    text-align: center;
+    font-size: 25px;
+    padding: 10px 30px 5px 30px;
     text-decoration: none;
-    color: white;
+    color: #A38B67;
 }
 
-a.cabezal {
-    color: white;
+a.cabezal:hover {
+    color: #896FA3;
     text-decoration: none;
+    transform: scale3d(1.05, 1.05, 1);
+    transition: all 0.5s;
   }

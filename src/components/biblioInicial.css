@@ -1,5 +1,7 @@
 .containerbib {
     display: flex;
+    padding-top:50px;
+    justify-content: center;
   }
 
   .biblio1 {
@@ -25,4 +27,6 @@
   
   .biblio:hover img:last-child {
     display:flex;
+    transform: scale3d(1.10, 1.10, 1);
+    transition: all 1s;
   }

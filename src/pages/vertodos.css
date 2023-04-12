@@ -1,25 +1,60 @@
+.formulario {
+    background: linear-gradient(180deg, #F0D6AE 50%,#d6f3df 100%);
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+}
+
+input.input2 {
+    border: none;
+    border-radius: 5px;
+    color: #896FA3;
+    background-color: rgb(243, 233, 220);
+    font-size: 25px;
+}
+
+.buscarLibro{
+    background-color: #A38B67;;
+    border-radius: 12px;
+    color: #d6f3df;
+    font-size: 30px;
+    border:none;
+    padding-left:8px;
+    padding-right:8px;
+}
+
+.buscarLibro:hover{
+background-color: #896FA3;
+border-radius: 12px;
+color: #d6f3df;
+}
+
 .grid {
-    margin-left: 20px;
+    justify-content: center;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, 220px);
     gap: 15px;
     padding: 10px;
 }
 
 .card {
-    background-color: rgb(203, 203, 203);
+    background: rgba(255, 255, 255, 0);
     border-radius: 5px;
+    border:none;
     text-align: center;
     padding: 10px;
     list-style: none;
 }
 
 .card:hover {
-    background-color: rgb(180, 180, 180);
+    background: linear-gradient(180deg, #F0D6AE 50%,#A38B67 100%);
+    transform: scale3d(1.05, 1.05, 1);
+    transition: all 1s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .tituloLibro {
-    color: white;
+    color: #A38B67;
     padding: 0px;
     font-size: 20px;
 }
@@ -47,9 +82,9 @@
 }
 
 .eliminarLibro {
-    background-color: rgb(124, 124, 124);
+    background-color: #896FA3;
     border-radius: 12px;
-    color: white;
+    color: #d6f3df;
     font-size: 15px;
     border: none;
     padding: 5px;
@@ -62,27 +97,4 @@
     width: 100%;
     margin-bottom: 10px;
     border-radius: 5px;
-}
-
-input.input2 {
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(203, 203, 203);
-    font-size: 30px;
-}
-
-.formulario {
-    display: flex;
-    align-items: center;
-    margin: 30px;
-}
-
-.buscarLibro{
-    background-color: rgb(124, 124, 124);
-    border-radius: 12px;
-    color: white;
-    font-size: 30px;
-    border:none;
-    padding-left:8px;
-    padding-right:8px;
 }
